@@ -1,0 +1,64 @@
+% Copyright 2007 by Till Tantau
+% Copyright 2015 by Vedran Mileti\'c, Joseph Wright
+%
+% This file may be distributed and/or modified
+%
+% 1. under the LaTeX Project Public License and/or
+% 2. under the GNU Public License.
+%
+% See the file doc/licenses/LICENSE for more details.
+
+\DeclareOptionBeamer{shadow}[false]{\def\beamer@themerounded@shadow{#1}}
+\ExecuteOptionsBeamer{shadow=false}
+\ProcessOptionsBeamer
+
+\mode<presentation>
+
+\setbeamertemplate{blocks}[rounded][shadow=\beamer@themerounded@shadow]
+%\setbeamerfont{caption}{series=\normalfont,size=\fontsize{8}{8}}
+\setbeamertemplate{sections/subsections in toc}[circle]
+\setbeamertemplate{subsection in toc}{\leavevmode\leftskip=1em \textcolor{LTUblue}{\textbullet} \hspace{.1em}\inserttocsubsection\par}
+
+\setbeamertemplate{itemize item}[circle]
+\setbeamertemplate{itemize subitem}{--}
+
+%\setbeamertemplate{title page}[default][colsep=-4bp,rounded=true,shadow=\beamer@themerounded@shadow]
+%\setbeamertemplate{part page}[default][colsep=-4bp,rounded=true,shadow=\beamer@themerounded@shadow]
+%\setbeamertemplate{section page}[default][colsep=-4bp,rounded=true,shadow=\beamer@themerounded@shadow]
+%\setbeamertemplate{subsection page}[default][colsep=-4bp,rounded=true,shadow=\beamer@themerounded@shadow]
+
+\setbeamertemplate{title page}
+{
+  \vbox{}
+  \begingroup
+    \centering
+    {\usebeamercolor[fg]{titlegraphic}\inserttitlegraphic\par}\vskip1em
+    \begin{beamercolorbox}[colsep=4bp,rounded=true,shadow=\beamer@themerounded@shadow]{title}
+      \centering
+      \usebeamerfont{title}\inserttitle\par%
+      \ifx\insertsubtitle\@empty%
+      \else%
+        \vskip0.25em%
+        {\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par}%
+      \fi%
+    \end{beamercolorbox}%
+    \vskip1em\par
+    \begin{tikzpicture}[remember picture,overlay]
+    	\node[xshift=0.7cm,yshift=-0.95\textheight,anchor=north west] at (current page.north west){%
+    \includegraphics[width=2cm]{figures/logos/IRISC_Black.png}};
+	\end{tikzpicture}
+%    \begin{beamercolorbox}[sep=8pt,center]{author}
+%      \usebeamerfont{author}\insertauthor
+%    \end{beamercolorbox}
+    \begin{beamercolorbox}[sep=8pt,center]{institute}
+      \usebeamerfont{institute}\insertinstitute
+    \end{beamercolorbox}
+    \begin{beamercolorbox}[sep=8pt,center]{date}
+      \usebeamerfont{date}\insertdate
+    \end{beamercolorbox}
+  \endgroup
+  \vfill
+}
+  
+
+\mode<all>

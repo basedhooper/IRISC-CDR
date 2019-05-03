@@ -1,0 +1,60 @@
+% Copyright 2007 by Till Tantau
+%
+% Modified by Elrick Weterings to have the same colors as LTU and
+% being more compact, removed glare and shadows.
+%
+% This file may be distributed and/or modified
+%
+% 1. under the LaTeX Project Public License and/or
+% 2. under the GNU Public License.
+%
+% See the file doc/licenses/LICENSE for more details.
+
+\mode<presentation>
+
+% Basic setup.
+%\setbeamercovered{transparent} 
+\setbeamertemplate{navigation symbols}{} 
+\newcommand{\nologo}{\setbeamertemplate{logo}{}} % command to set the logo to nothing
+\setbeamerfont{block title}{size={}}
+
+% Innet theme.
+%\useinnertheme[shadow=false]{rounded}
+\usepackage[shadow=false]{theme/beamerinnerthemeroundedLTU}
+
+% Outer theme.
+%\useoutertheme{shadow}
+\usepackage{theme/beamerouterthemesplitLTU}
+
+% Color themes.
+%\usecolortheme{orchid}
+%\usecolortheme{whale}
+\usepackage{theme/beamercolorthemewhaleLTU}
+
+% Needed for beamer commands if not on PC at default.
+%\usepackage{theme/beamerbasetoc}
+
+% toc options.
+\setcounter{tocdepth}{2}
+\makeatletter
+\patchcmd{\beamer@sectionintoc}
+  {\vfill}
+  {\vskip\itemsep}
+  {}
+  {}
+\makeatother 
+
+
+
+% Logo
+\newlength{\navigationsymbolheight}
+\settoheight{\navigationsymbolheight}{\NoHyper\insertframenavigationsymbol}
+\logo{\raisebox{-\navigationsymbolheight}{\includegraphics[width=2cm]{theme/LTU_logo.jpg}}}
+
+\titlegraphic{\includegraphics[width=\textwidth]{figures/logos/logoArray.png}}
+
+
+
+
+\mode
+<all>
