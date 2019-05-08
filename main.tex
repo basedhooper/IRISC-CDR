@@ -89,6 +89,48 @@
 \subsection{Ground Station}
 %	CONTROL. ----------------------------------------------------------------------------
 \subsection{Control System}
+
+\begin{frame}{Control system}
+    Objectives of the control system:
+    \begin{itemize}
+        \item Selection and tracking the astronomical targets
+        \item Stabilisation the telescope during exposure
+        \item Avoid pointing the telescope at the Sun
+        \item Thermal control of the CMOS sensor and the electronics box
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Control system}
+    \begin{itemize}
+        \item<1-> Selection of targets: %\\
+        \begin{itemize}
+            \item Based on prioritisation parameters (e.\,g. brightness, location)
+            \item Sensor data: star tracker, GPS %\\
+        \end{itemize}
+        \item<2-> Tracking of targets: 
+        \begin{itemize}
+            \item Model of movements of astronomical targets
+            \item Sensor data: internal clock, GPS
+        \end{itemize}
+        \item<3-> Stabilisation of the gimbal: dynamic control system (e.\,g.~PID) %\\
+        \begin{itemize}
+            \item Mechanical model of the gimbal, motors model
+            \item Sensor data: gyroscopes, encoders%\\
+        \end{itemize}
+        \item<4-> Feedback loop, measured states: 
+        \begin{itemize}
+            \item Kalman filter determines exact position \& orientation
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[t]{Control system}
+    \begin{figure}
+        \includegraphics[width=\linewidth]{figures/images/Control_loop.eps}
+        \caption{Main control loop}
+    \end{figure}
+\end{frame}
+
 %	CAMERA. -----------------------------------------------------------------------------
 \subsection{Cameras}
 %	TELESCOPE. --------------------------------------------------------------------------
