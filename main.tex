@@ -1,4 +1,3 @@
-
 \documentclass[11pt, aspectratio=169]{beamer}
 
 \usepackage[utf8]{inputenc}
@@ -12,6 +11,8 @@
 %\usepackage[shortlabels]{enumitem}
 \usepackage[font=scriptsize,justification=centering]{caption}
 \usepackage{movie15}
+\usepackage{tikz}
+\usetikzlibrary{arrows,shapes,positioning,shadows,trees}
 \graphicspath{{figures/}}
 
 %----------------------------------------------------------------------------------------
@@ -112,7 +113,7 @@
             \item Model of movements of astronomical targets
             \item Sensor data: internal clock, GPS
         \end{itemize}
-        \item<3-> Stabilisation of the gimbal: dynamic control system (e.\,g.~PID) %\\
+        \item<3-> Stabilisation of the gimbal: dynamic control system (PID) %\\
         \begin{itemize}
             \item Mechanical model of the gimbal, motors model
             \item Sensor data: gyroscopes, encoders%\\
@@ -151,6 +152,21 @@
 \section{Project Management}
 %	TEAM. ---------------------------------------------------------------------------
 \subsection{Team composition}
+
+\begin{frame}{Team composition}
+    \begin{figure}
+        \includegraphics[width=\linewidth]{images/Team_structure.pdf}
+        \caption{Work breakdown structure}
+    \end{figure}
+\end{frame}
+
+\begin{frame}{Project schedule}
+    \begin{figure}
+        \includegraphics[width=0.98\linewidth]{images/gantt.png}
+        \caption{Work breakdown structure}
+    \end{figure}
+\end{frame}
+
 %	PLANNING. ---------------------------------------------------------------------------
 \subsection{Time planning}
 %	BUDGET. -----------------------------------------------------------------------------

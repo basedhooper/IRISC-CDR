@@ -138,3 +138,5 @@ sympy-plots-for-*.tex/
 main.pdf
 
 *.pdf
+
+!figures/images/Team_structure.pdf
