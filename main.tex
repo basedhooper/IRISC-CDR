@@ -16,7 +16,7 @@
 \graphicspath{{figures/}}
 
 %----------------------------------------------------------------------------------------
-%	TITLE PAGE INFORMATION.
+%   TITLE PAGE INFORMATION.
 %----------------------------------------------------------------------------------------
 \author{S. Björk, J. Hooper, J. M. Inga, H. Magnusson, A. Śmiałek}
 \title{InfraRed Imaging of astronomical targets with a Stabilised Camera}
@@ -26,7 +26,7 @@
 %\subject{} 
 
 %----------------------------------------------------------------------------------------
-%	SETUP LAYOUT.
+%   SETUP LAYOUT.
 %----------------------------------------------------------------------------------------
 \usepackage{theme/beamerthemeWarsawLTU}
 %\usetheme{Warsaw}
@@ -34,7 +34,7 @@
 
 \begin{document}
 %----------------------------------------------------------------------------------------
-%	TITLE PAGE.
+%   TITLE PAGE.
 %----------------------------------------------------------------------------------------
 
 {\setbeamertemplate{logo}{}
@@ -48,7 +48,7 @@
 }
 
 %----------------------------------------------------------------------------------------
-%	TABLE OF CONTENTS.
+%   TABLE OF CONTENTS.
 %----------------------------------------------------------------------------------------
 \begin{frame}[t]{Table of Contents}
 \vspace{-0.3cm}
@@ -66,29 +66,116 @@
 
 
 %----------------------------------------------------------------------------------------
-%	INTRODUCTION.
+%   INTRODUCTION.
 %----------------------------------------------------------------------------------------
 
 %----------------------------------------------------------------------------------------
-%	SCIENCE.
+%   SCIENCE.
 %----------------------------------------------------------------------------------------
 \section{Science}
 
 %----------------------------------------------------------------------------------------
-%	SYSTEM.
+%   SYSTEM.
 %----------------------------------------------------------------------------------------
 \section{System}
-%	CONSTRUCTION. -----------------------------------------------------------------------
+%   CONSTRUCTION. -----------------------------------------------------------------------
 \subsection{Construction}
-%	THERMAL. ----------------------------------------------------------------------------
+%   THERMAL. ----------------------------------------------------------------------------
 \subsection{Thermal}
-%	ELECTRICAL. -------------------------------------------------------------------------
+%   ELECTRICAL. -------------------------------------------------------------------------
 \subsection{Electrical Setup}
-%	SOFTWARE. ---------------------------------------------------------------------------
+%   SOFTWARE. ---------------------------------------------------------------------------
 \subsection{On-board Software}
-%	GROUND STATION?. --------------------------------------------------------------------
+
+%%%%%%%%%%%%%%%%%%%%% states
+    \begin{frame}[c]{Software - State Chart}
+        \centering
+        \begin{figure}
+            \includegraphics[width=.7\textwidth]{software/state-diagram.png}
+        \end{figure}
+    \end{frame}
+    %%% outer connections
+            % power
+            % datalink
+%%%%%%%%%%%%%%%%%%%%% flow
+    \begin{frame}[c]{Software - Activity}
+        \centering
+        \begin{columns}[t]
+            \begin{column}{.5\textwidth}
+                Low activity ``sleep'' during ascent\\
+                \vspace{1cm}
+                \only<2->{
+                    Switch conditions:
+                    \begin{itemize}
+                        \item Current target leaves operational field of view
+                        \item Target moves too close to the sun for observation
+                        \item A higher priority target enters the field of view
+                    \end{itemize}
+                }
+            \end{column}
+
+            \begin{column}{.5\textwidth}
+                \vspace{-1 cm}
+                \begin{figure}
+                    \includegraphics[height=.9\textheight]{software/activity-diagram.png}
+                \end{figure}
+            \end{column}
+        \end{columns}
+    \end{frame}
+
+%%%%%%%%%%%%%%%%%%%%% uplink
+    \begin{frame}[c]{Software - E-link Uplink}
+        \centering
+        \begin{columns}[t]
+            \begin{column}{.5\textwidth}
+                Basic commads:
+                \begin{itemize}
+                    \item Rebooting
+                    \item Updating targets
+                    \item Calibrating tracking
+                    \item Controlling downlink
+                    \item Setting camera settings
+                    \item Guiding / Sanity
+                    \item Cut Off
+                \end{itemize}
+            \end{column}
+
+            \begin{column}{.5\textwidth}
+                \only<2->{
+                    \vspace{1cm}\\
+                    \large{Maximum data rate:\\a few kbit/s}
+                }
+            \end{column}
+        \end{columns}
+    \end{frame}
+
+%%%%%%%%%%%%%%%%%%%%% downlink
+    \begin{frame}[c]{Software - E-link Downlink Load}
+        \centering
+        \begin{tabular}{| l | l | l | l |}
+            \hline
+            \textbf{Item} & \textbf{File size} & \textbf{Downlink rate} & \textbf{Datarate} \\\hline\hline
+
+            NIR camera        & 20\,MB    & variable              & 440\,kbit/s  \\\hline
+            Guiding camera    & 2\,MB     & 60\,s / on request    & 270\,kbit/s  \\\hline
+            Sanity camera     & 4\,MB     & on request            & -            \\\hline
+            Sensors           & 100\,B    & 1\,s                  & 1\,kbit/s    \\\hline
+        \end{tabular}
+    \end{frame}
+
+
+%   GROUND STATION?. --------------------------------------------------------------------
 \subsection{Ground Station}
-%	CONTROL. ----------------------------------------------------------------------------
+
+    \begin{frame}[c]{Software - Ground Station}
+        Role:
+        \begin{itemize}
+            \item Send telecommands
+            \item Receive and display telemetry
+        \end{itemize}
+    \end{frame}
+
+%   CONTROL. ----------------------------------------------------------------------------
 \subsection{Control System}
 
 \begin{frame}{Control system}
@@ -131,28 +218,26 @@
         \caption{Main control loop}
     \end{figure}
 \end{frame}
-
-%	CAMERA. -----------------------------------------------------------------------------
+%   CAMERA. -----------------------------------------------------------------------------
 \subsection{Cameras}
-%	TELESCOPE. --------------------------------------------------------------------------
+%   TELESCOPE. --------------------------------------------------------------------------
 \subsection{Telescope}
 
 %----------------------------------------------------------------------------------------
-%	REQUIREMENTS AND RISKS.
+%   REQUIREMENTS AND RISKS.
 %----------------------------------------------------------------------------------------
 \section{Requirements and risks}
-%	REQUIREMENTS. -----------------------------------------------------------------------
+%   REQUIREMENTS. -----------------------------------------------------------------------
 \subsection{Requirements}
-%	RISKS. ------------------------------------------------------------------------------
+%   RISKS. ------------------------------------------------------------------------------
 \subsection{Risks}
 
 %----------------------------------------------------------------------------------------
-%	PROJECT MANAGEMENT.
+%   PROJECT MANAGEMENT.
 %----------------------------------------------------------------------------------------
 \section{Project Management}
-%	TEAM. ---------------------------------------------------------------------------
+%   TEAM. ---------------------------------------------------------------------------
 \subsection{Team composition}
-
 \begin{frame}{Team composition}
     \begin{figure}
         \includegraphics[width=\linewidth]{images/Team_structure.pdf}
@@ -167,20 +252,20 @@
     \end{figure}
 \end{frame}
 
-%	PLANNING. ---------------------------------------------------------------------------
+%   PLANNING. ---------------------------------------------------------------------------
 \subsection{Time planning}
-%	BUDGET. -----------------------------------------------------------------------------
+%   BUDGET. -----------------------------------------------------------------------------
 \subsection{Budget}
-%	OUTREACH. ---------------------------------------------------------------------------
+%   OUTREACH. ---------------------------------------------------------------------------
 \subsection{Outreach}
 
 %----------------------------------------------------------------------------------------
-%	SUMMARY.
+%   SUMMARY.
 %----------------------------------------------------------------------------------------
 \section{Summary}
 
 %----------------------------------------------------------------------------------------
-%	QUESTIONS.
+%   QUESTIONS.
 %----------------------------------------------------------------------------------------
 \section{Questions}
 
@@ -190,19 +275,24 @@
 %%    \vspace{-0.71cm}
 %%    \begin{figure}
 %%    \hspace*{-1.1cm}
-%%    	\includegraphics[width=1.15\textwidth]{figures/images/teamphoto.png}
+%%      \includegraphics[width=1.15\textwidth]{figures/images/teamphoto.png}
 %%    \end{figure}
-%	\includegraphics[width=\paperwidth]{figures/images/IRISC_Team_001_16_9+logo.jpg}
+%   \includegraphics[width=\paperwidth]{figures/images/IRISC_Team_001_16_9+logo.jpg}
 %\end{frame}
 {
 \usebackgroundtemplate{\includegraphics[width=\paperwidth]{figures/images/IRISC_Team_001_16_9+logo.jpg}}
 \begin{frame}[plain]
-%\label{slide:questions}
+\label{slide:questions}
 \end{frame}
 
 }
 %----------------------------------------------------------------------------------------
-%	BACKUP SLIDES. 				EVERYONE!!!
+%   BACKUP SLIDES.              EVERYONE!!!
 %----------------------------------------------------------------------------------------
+
+\begin{frame}[c]{Software Composition}
+    \centering
+    \includegraphics[height=.9\textheight]{software/composition-tree.png}
+\end{frame}
 
 \end{document}
