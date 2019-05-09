@@ -202,7 +202,7 @@
         \item<1-> Selection of targets: %\\
         \begin{itemize}
             \item Based on prioritisation parameters (e.\,g. brightness, location)
-            \item Sensor data: star tracker, GPS %\\
+            \item Sensor data: star tracker, GPS, magnetometer %\\
         \end{itemize}
         \item<2-> Tracking of targets: 
         \begin{itemize}
@@ -224,22 +224,89 @@
 \begin{frame}[t]{Control system}
     \begin{figure}
         \includegraphics[width=\linewidth]{figures/images/Control_loop.eps}
-        \caption{Main control loop}
+        \caption*{Main control loop}
     \end{figure}
 \end{frame}
-%   CAMERA. -----------------------------------------------------------------------------
-\subsection{Cameras}
-%   TELESCOPE. --------------------------------------------------------------------------
-\subsection{Telescope}
 
-%----------------------------------------------------------------------------------------
-%   REQUIREMENTS AND RISKS.
-%----------------------------------------------------------------------------------------
-\section{Requirements and risks}
-%   REQUIREMENTS. -----------------------------------------------------------------------
-\subsection{Requirements}
-%   RISKS. ------------------------------------------------------------------------------
-\subsection{Risks}
+\begin{frame}
+    \frametitle{Control system - Risks}
+        Maybe about not finding proper PID and Q \& R Kalman values?
+\end{frame}
+%   CAMERA. -----------------------------------------------------------------------------
+\subsection{Cameras} 			% ANJA
+\begin{frame}{NIR Camera for the telescope}
+    \vspace{-0.2cm}
+    \begin{columns}[t]
+    \begin{column}{0.6\textwidth}
+        \begin{itemize}
+            \item CMOS Sensor: ZWO ASI183MM (mono-colour) \\
+                resolution: 20.18\,MP, sensor size: 13.2x8.8\,mm
+            \item NIR-conversion with 720\,nm NIR filter
+            %\item Sensitivity: 720\,nm to 1150\,nm
+            \item Rolling shutter: no mechanical shutter, no moving parts
+        \end{itemize}
+        \vspace{-0.7cm}
+        \begin{figure}
+        \centering
+        \includegraphics[width = 1.1\linewidth]{figures/images/IRISC_spectrum.eps}
+    \end{figure}
+    \end{column}
+    \begin{column}{0.4\textwidth}
+        \begin{figure}[t]
+            \centering
+            \includegraphics[width=0.7\linewidth]{figures/images/ZWO_ASI183MM.jpg}
+            \caption*{Credits: ZWO ASI183MM (mono)}
+            \label{fig::NIR_sensor}
+        \end{figure}
+    \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Guiding Camera}
+    \begin{columns}[t]
+    \begin{column}{0.6\textwidth}
+    \begin{itemize}
+        \item For verification of the field of view (7.5\,deg)
+        \item Support of ground-based re-calibration of sensors (e.\,g.~magnetometer, gyroscopes)
+        \item Imaging sensor with a high sensitivity, resulting in shorter exposure times (compared to NIR camera)
+        \item Imaging in visible wavelengths and NIR
+    \end{itemize}
+
+    \end{column}
+    \begin{column}{0.4\textwidth}
+        \begin{figure}[t]
+            \centering
+            \includegraphics[width=0.7\linewidth]{figures/images/ZWO_ASI290MM_Mini.jpg}
+            \caption*{Credits: Guiding camera by ZWO}
+            \label{fig::guiding_camera}
+        \end{figure}
+    \end{column}
+    \end{columns}
+\end{frame}
+
+\subsection{Telescope} 			% KIM
+    \begin{frame}{Telescope}
+    \begin{figure}[!htb]
+        \centering
+        \begin{minipage}{.5\textwidth}
+            \centering
+            \includegraphics[width=\linewidth]{figures/images/SkyWatcher_BKP130DS.jpg}
+            \caption*{SkyWatcher BKP 130DS (with eyepiece in place of the camera)}
+        \end{minipage}%
+        \begin{minipage}{0.5\textwidth}
+            SkyWatcher BKP 130DS
+            \begin{itemize}%[label=--]
+                \item Newtonian telescope 
+                \item Focal length: 650\,mm 
+                \item Aperture: 130\,mm
+                \item FOV: 1.16\,deg by 0.78\,deg 
+                \item Diffraction-limited-resolution: 1.94\,arcsec
+                \item Pixel size: 0.76\,arcsec (in \newline combination with the camera)
+            \end{itemize}
+        \end{minipage}
+    \end{figure}
+\end{frame}
+
 
 %----------------------------------------------------------------------------------------
 %   PROJECT MANAGEMENT.
@@ -268,7 +335,7 @@
 
 \begin{frame}{Budget (Expences)}
     \centering
-    \small
+    \footnotesize
     \begin{tabular}{|l|c|c|c|} 
         \hline
         Component & Qty & Cost/Unit (\euro) & Cost (\euro)  \\ 
@@ -357,6 +424,13 @@
 \begin{frame}[c]{Software Composition}
     \centering
     \includegraphics[height=.9\textheight]{software/composition-tree.png}
+\end{frame}
+
+\begin{frame}[c]{Thermal control loop}
+    \begin{figure}
+        \includegraphics[width=\textwidth]{figures/images/Thermal_control.eps}
+        \caption*{Thermal control loop}
+    \end{figure}
 \end{frame}
 
 \begin{frame}{Budget (1)}
