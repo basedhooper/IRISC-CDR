@@ -8,6 +8,15 @@
 \usepackage{subfig}
 \usepackage{pgfgantt}
 \usepackage[export]{adjustbox}
+
+% \usepackage[table]{xcolor}
+
+\usepackage{color, colortbl}
+\definecolor{Gray}{rgb}{0.8,.8,.8}
+
+\usepackage{soul}
+\usepackage{eurosym}
+
 %\usepackage[shortlabels]{enumitem}
 \usepackage[font=scriptsize,justification=centering]{caption}
 \usepackage{movie15}
@@ -245,6 +254,8 @@
     \end{figure}
 \end{frame}
 
+%   PLANNING. ---------------------------------------------------------------------------
+\subsection{Project schedule}
 \begin{frame}{Project schedule}
     \begin{figure}
         \includegraphics[width=0.98\linewidth]{images/gantt.png}
@@ -252,11 +263,64 @@
     \end{figure}
 \end{frame}
 
-%   PLANNING. ---------------------------------------------------------------------------
-\subsection{Time planning}
 %   BUDGET. -----------------------------------------------------------------------------
 \subsection{Budget}
-%   OUTREACH. ---------------------------------------------------------------------------
+
+\begin{frame}{Budget (Expences)}
+    \centering
+    \small
+    \begin{tabular}{|l|c|c|c|} 
+        \hline
+        Component & Qty & Cost/Unit (\euro) & Cost (\euro)  \\ 
+        \hline
+        \rowcolor{Gray}
+        \textbf{Structure} &  & \textbf{Total} & \textbf{590}  \\
+        Bearings & TBD & TBD & 200 \\ 
+        \hline
+        \rowcolor{Gray}
+        \textbf{Electronics} &  & \textbf{Total} & \textbf{631.5}  \\
+        Motors & 3 & 21.99 & 66.0  \\
+        Encoders & 2 & 44.2 & 88.4  \\
+        GPS Receiver & 3 & 22.0 & 66.0  \\
+        Various small components & n/a & n/a & 100  \\
+        \hline
+        
+        \rowcolor{Gray}
+        \textbf{Optical} &  & \textbf{Total} & \textbf{1420.5}  \\
+        Telescope & 1 & 250.5 & 250.5  \\
+        IR Camera & 1 & 800 & 800  \\
+        Guiding Camera & 1 & 320 & 320  \\
+        \hline
+        
+        \rowcolor{Gray}
+        \textbf{Other} &  & \textbf{Total} & \textbf{1300}  \\
+        Error margin & n/a & n/a & 250  \\
+        Travel PDR/CDR & 2 & 500 & 1000 \\
+        \hline
+        \textbf{Total} &  &  & \textbf{3942}  \\
+        \hline
+    \end{tabular}
+\end{frame}
+
+\begin{frame}{Budget (Funding)}
+    \centering
+    \small
+    \begin{tabular}{|l|c|c|} 
+        \hline
+        Source & Amount (\euro) & Limitations   \\ 
+        \hline
+        Luleå University of Technology & $\approx1000$ & Hardware and travel \\
+        SNSA & $\approx3000$ & Hardware and travel \\
+        Crowdfunding Campaign & TBD & None \\
+        \hline
+        \textbf{Total projected income} & \textbf{$\approx4000$} & \\
+        \hline
+        \bf{Total projected cost} & \bf{3942} & \\
+        \hline
+    \end{tabular}
+\end{frame}
+    
+    %   OUTREACH. ---------------------------------------------------------------------------
 \subsection{Outreach}
 
 %----------------------------------------------------------------------------------------
@@ -294,5 +358,91 @@
     \centering
     \includegraphics[height=.9\textheight]{software/composition-tree.png}
 \end{frame}
+
+\begin{frame}{Budget (1)}
+    \centering
+    \begin{tabular}{|l|c|c|c|} 
+        \hline
+        Component & Qty & Cost/Unit (\euro) & Cost (\euro)  \\ 
+        \hline
+        \rowcolor{Gray}
+        \textbf{Structure} &  &  & \textbf{590}  \\
+        Aluminium profile, 20x20mm & 3000 mm & n/a & 20  \\
+        Aluminium profile, 30x30mm & 2000 mm & n/a & 35  \\
+        M6 T-bolt & 30 & 0.9 & 27  \\
+        M4 T-slot & 2 & 7.5 & 15  \\
+        90-deg connector, 20mm & 8 & 3.1 & 25 \\
+        90-deg connector, 30mm & 10 & 5 & 50 \\
+        Aluminium sheet, 1mm & 500x500mm & n/a & 20 \\
+        Aluminium sheet, 2mm & 500x500mm & n/a & 70 \\
+        Bearings & TBD & TBD & 200 \\
+        Tools & n/a & n/a & 78 \\
+        Various small components & n/a & n/a & 50  \\
+        \hline
+    \end{tabular}
+\end{frame}
+\begin{frame}{Budget (2)}
+    \centering
+    \begin{tabular}{|l|c|c|c|} 
+        \hline
+        Component & Qty & Cost/Unit (\euro) & Cost (\euro)  \\ 
+        \hline
+        \rowcolor{Gray}
+        \textbf{Electronics (part 1)} &  &  & \textbf{631.5}  \\ 
+        Raspberry Pi 3 B+ & 1 & 29.5 & 29.5  \\
+        Raspberry Pi Zero & 1 & 22.6 & 22.6  \\
+        Peltier element & 1 & 35.2 & 35.2  \\
+        Heating pad & 1 & 17.7 & 17.7  \\ 
+        Motors & 3 & 21.99 & 66.0  \\ 
+        Motor controller & 1 & 4.7 & 4.7  \\
+        Encoders & 2 & 44.2 & 88.4  \\
+        GPS Receiver & 3 & 22.0 & 66.0  \\ 
+        GPS Antenna & 1 & 17.2 & 17.2  \\
+        Gyroscope & 1 & 54.2 & 54.2  \\
+        \hline
+    \end{tabular}
+\end{frame}
+\begin{frame}{Budget (3)}
+    \centering
+    \begin{tabular}{|l|c|c|c|} 
+        \hline
+        Component & Qty & Cost/Unit (\euro) & Cost (\euro)  \\ 
+        \hline
+        \rowcolor{Gray}
+        \textbf{Electronics (part 2)} &  &  & \textbf{631.5}  \\ 
+        Raspberry Pi Camera V2 & 1 & 23.6 & 23.6  \\ 
+        ADC & 1 & 18.3 & 18.3  \\ 
+        ADC & 1 & 4.8 & 4.8  \\
+        SD-card 32GB & 2 & 21.5 & 43  \\
+        SD-card 8GB & 1 & 6.5 & 6.5  \\
+        U-regulator & 1 & 10.6 & 10.6  \\
+        Various small components & n/a & n/a & 100  \\
+        \hline
+    \end{tabular}
+\end{frame}
+\begin{frame}{Budget (4)}
+    \centering
+    \begin{tabular}{|l|c|c|c|} 
+        \hline
+        Component & Qty & Cost/Unit (\euro) & Cost (\euro)  \\ 
+        \hline
+        \rowcolor{Gray}
+        \textbf{Optical} &  &  & \textbf{1420.5}  \\
+        Telescope & 1 & 250.5 & 250.5  \\
+        IR Camera & 1 & 800 & 800  \\
+        Guiding Camera & 1 & 320 & 320  \\
+        Camera mounting adapter & 1 & 50 & 50 \\
+        \hline
+        \rowcolor{Gray}
+        \textbf{Other} &  &  & \textbf{1300}  \\
+        Shipping costs & n/a & n/a & 50  \\
+        Error margin & n/a & n/a & 250  \\
+        Travel PDR/CDR & 2 & 500 & 1000 \\
+        \hline
+        \textbf{Total} &  &  & \textbf{3942}  \\
+        \hline
+    \end{tabular}
+\end{frame}
+
 
 \end{document}
