@@ -73,15 +73,28 @@
     \end{columns}
 \end{frame}
 
+%----------------------------------------------------------------------------------------
+%   INTRODUCTION / EXPERIMENT OVERVIEW.
+%----------------------------------------------------------------------------------------
+\section{Experiment Overview}
+\begin{frame}[c]{Experiment Overview}
+    \begin{columns}[t]
+        \begin{column}{.4\textwidth}
+            \centering
+            \vspace{2cm}\\
+            \large{InfraRed Imaging of astronomical targets with a Stabilised Camera}
+        \end{column}
+        \begin{column}{.6\textwidth}
+        \vspace{-.5cm}
+            \begin{figure}
+                \includegraphics[height=.45\textheight]{overview/Pinwheel_BKP130.png}
+                %%%% TODO: newer CAD model
+                \includegraphics[height=.5\textheight]{overview/experiment_overview.png}
+            \end{figure}
+        \end{column}
+    \end{columns}
+\end{frame}
 
-%----------------------------------------------------------------------------------------
-%   INTRODUCTION.
-%----------------------------------------------------------------------------------------
-
-%----------------------------------------------------------------------------------------
-%   SCIENCE.
-%----------------------------------------------------------------------------------------
-\section{Science}
 
 %----------------------------------------------------------------------------------------
 %   SYSTEM.
@@ -102,34 +115,6 @@
         \begin{figure}
             \includegraphics[width=.7\textwidth]{software/state-diagram.png}
         \end{figure}
-    \end{frame}
-    %%% outer connections
-            % power
-            % datalink
-%%%%%%%%%%%%%%%%%%%%% flow
-    \begin{frame}[c]{Software - Activity}
-        \centering
-        \begin{columns}[t]
-            \begin{column}{.5\textwidth}
-                Low activity ``sleep'' during ascent\\
-                \vspace{1cm}
-                \only<2->{
-                    Switch conditions:
-                    \begin{itemize}
-                        \item Current target leaves operational field of view
-                        \item Target moves too close to the sun for observation
-                        \item A higher priority target enters the field of view
-                    \end{itemize}
-                }
-            \end{column}
-
-            \begin{column}{.5\textwidth}
-                \vspace{-1 cm}
-                \begin{figure}
-                    \includegraphics[height=.9\textheight]{software/activity-diagram.png}
-                \end{figure}
-            \end{column}
-        \end{columns}
     \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%% uplink
@@ -170,8 +155,11 @@
             Sanity camera     & 4\,MB     & on request            & -            \\\hline
             Sensors           & 100\,B    & 1\,s                  & 1\,kbit/s    \\\hline
         \end{tabular}
+        \only<2->{
+            \vspace{.5cm}\\
+            Minimum: 300\,kbit/s\quad Nominal: 500\,kbit/s
+        }
     \end{frame}
-
 
 %   GROUND STATION?. --------------------------------------------------------------------
 \subsection{Ground Station}
@@ -307,7 +295,10 @@
     \end{figure}
 \end{frame}
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 52e662c37c98ddaca4c525124341eafcce66a416
 %----------------------------------------------------------------------------------------
 %   PROJECT MANAGEMENT.
 %----------------------------------------------------------------------------------------
@@ -421,11 +412,57 @@
 %   BACKUP SLIDES.              EVERYONE!!!
 %----------------------------------------------------------------------------------------
 
-\begin{frame}[c]{Software Composition}
-    \centering
-    \includegraphics[height=.9\textheight]{software/composition-tree.png}
+%  Software
+%----------------------------------------------------------------------------------------
+
+%%%%%%%%%%%%%%%%%%%%% process overview
+\begin{frame}[c]{Software - Interface Overview}
+    \begin{figure}
+        \includegraphics[height=\textheight]{software/process-overview.png}
+    \end{figure}
 \end{frame}
 
+%%%%%%%%%%%%%%%%%%%%% composition
+\begin{frame}[c]{Software - Composition}
+    \begin{figure}
+        \includegraphics[height=.9\textheight]{software/composition-tree.png}
+    \end{figure}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%% flow
+\begin{frame}[c]{Software - Activity}
+    \centering
+    \begin{columns}[t]
+        \begin{column}{.5\textwidth}
+            \vspace{1cm}\\
+            Low activity ``sleep'' during ascent\\
+            \vspace{1cm}
+                Switch conditions:
+                \begin{itemize}
+                    \item Target leaves operational field of view
+                    \item A higher priority target enters the field of view
+                \end{itemize}
+        \end{column}
+
+        \begin{column}{.5\textwidth}
+            \vspace{-1 cm}
+            \begin{figure}
+                \includegraphics[height=.9\textheight]{software/activity-diagram.png}
+            \end{figure}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%% relations tree
+\begin{frame}[c]{Software - Relations Tree}
+    \begin{figure}
+        \includegraphics[height=.9\textheight]{software/complete_relations_tree.png}
+    \end{figure}
+\end{frame}
+
+%  END Software
+%----------------------------------------------------------------------------------------
 \begin{frame}[c]{Thermal control loop}
     \begin{figure}
         \includegraphics[width=\textwidth]{figures/images/Thermal_control.eps}
